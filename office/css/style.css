@@ -1,0 +1,7 @@
+#orderInfo {
+  overflow: auto;
+  height: calc(85vh - 130px);
+  width: 96%;
+  margin: auto;
+  margin-top: 30px;
+}

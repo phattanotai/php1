@@ -1,0 +1,34 @@
+#orderInfo {
+  overflow: auto;
+  height: calc(85vh - 130px);
+  width: 96%;
+  margin: auto;
+  margin-top: 30px;
+}
+.track {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  min-width: 100%;
+  min-height: calc(100vh);
+}
+#register {
+  background: linear-gradient(87deg, #4680ff 0, #2dcecc 100%) !important;
+  min-height: calc(100vh);
+}
+
+#index {
+  background: linear-gradient(87deg, #4680ff 0, #c5f0ef 100%) !important;
+  min-height: calc(100vh);
+}
+#login{
+  background-image: url('../images/1.jpg');
+  background-size: cover;
+  background-position: center top;
+  min-height: calc(100vh);
+}
+
+.opacity-9 {
+  opacity: 0.9;
+  
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+    <title> Management </title>
+    <link rel="stylesheet" href="./css/style.css" media="all" />
+    <link rel="stylesheet" href="./css/bootstrap.css" media="all" />
+    <link rel="stylesheet" href="./css/sweetalert2.min.css" media="all" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="./js/angular.js"></script>
+     <script src="./js/sweetalert2.min.js"></script>
+      <script src="./js/bootstrap.js"></script>
+     <script src="./js/script.js"></script>
+  </head>
+  <body ng-app="myApp" ng-controller="myCtrl">
+    <div  style="margin: 50px; margin-top: 20px">
+      <div class="panel panel-primary">
+        <div class="panel-body">
+          <div style="text-align: center">
+            <h4>
+              จัดการข้อมูล
+            </h4>
+          </div>
+          <div class="row" >
+              <div class="col-sm-4" style="margin-left: 12px">
+                <label for="SerialNo">Serial NO:</label>
+                <input type="text" ng-model="searchData" class="form-control" id="searchData" ng-keydown="doEnter($event)" name="searchData">
+              </div>
+              <div class="col-sm-3">
+                <button type="submit" style="margin-top: 25px" class="btn btn-success" ng-click="doSearch()"> <i class="fa fa-search"></i> ค้นหา </button>
+                <button type="submit" style="margin-top: 25px;font-size:16px" class="btn btn-primary btn-sm" ng-click="testConnect()"><i class='fas fa-globe'></i> ทดสอบการเชื่อมต่อ </button>
+              </div>
+          </div>
+          <div class="row">
+            <div id="orderInfo" class="col table-responsive-sm">
+               <table id="videoInfoTable" class="table table-bordered table-sm">
+                <thead>
+                  <tr>
+                    <th>Index</th>
+                    <th>Serial NO.</th>
+                    <th>ProdID</th>
+                    <th>SKUId</th>
+                    <th>จัดการ</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="x in data ">
+                    <td>{{ $index+1 }}</td>
+                    <td>{{ x.SerialNo }}</td>
+                    <td>{{ x.ProdID }}</td>
+                    <td>{{ x.SKUId }}</td>
+                    <th> 
+                      <button type="button" class="btn btn-danger btn-sm" ng-click="doEdit(x)" data-toggle="modal" data-target="#myModal"> 
+                      <i class='fas fa-edit'></i> แก้ไข 
+                    </button> 
+                    </th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Serial NO. {{ editData.SerialNo }}</h4>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="SerialNo">Serial NO:</label>
+                <input type="text" class="form-control" ng-model="editData.SerialNo"  >
+              </div>
+               <div class="form-group">
+                <label for="ProdID">ProdID:</label>
+                <input type="text" class="form-control" ng-model="editData.ProdID"  >
+              </div>
+              <div class="form-group">
+                <label for="SKUId">SKUId:</label>
+                <input type="text" class="form-control" ng-model="editData.SKUId" >
+              </div>
+              <button type="submit" style="margin-top: 20px" class="btn btn-danger " ng-click="doSave()" >บันทึก</button>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
